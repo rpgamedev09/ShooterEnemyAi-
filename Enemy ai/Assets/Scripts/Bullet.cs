@@ -15,4 +15,14 @@ public class Bullet : MonoBehaviour
     {
         Destroy(gameObject, 5f);
     }
+    private void OnTriggerEnter(Collider other)
+    {
+       
+        if (other.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Playercontroller>().TakeDamage(10);
+        }
+    }
+    
 }

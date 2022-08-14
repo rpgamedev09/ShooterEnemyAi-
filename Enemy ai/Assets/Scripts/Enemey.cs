@@ -37,15 +37,15 @@ public class Enemey : MonoBehaviour
     void Update()
     {
         enemySpeed = agent.GetComponent<NavMeshAgent>().speed;
-        if (LevelStart)
-        {
+        
+        
             playerInSightRange = Physics.CheckSphere(transform.position, sightRange, PlayerLayer);
             PlayerInAttackRange = Physics.CheckSphere(transform.position, attackRange, PlayerLayer);
 
             if (!playerInSightRange && !PlayerInAttackRange) Petrolling();
             if (playerInSightRange && !PlayerInAttackRange) ChasePlayer();
             if (PlayerInAttackRange && playerInSightRange) AttackPlayer();
-        }
+        
        
     }
     //Attack
